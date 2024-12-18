@@ -11,12 +11,14 @@ public class BankStatementCSVParser implements BankStatementParser {
 
     @Override
     public BankTransaction parseFrom(String line) {
-        final String[] columns = line.split(",");
-        final LocalDate date = LocalDate.parse(columns[0], DATE_PATTERN);
-        final double amount = Double.parseDouble(columns[1]);
-        final String description = columns[2];
+        BankCSVRow bankCSVRow = BankCSVRow.fromLine(line);
 
-        return new BankTransaction(date, amount, description);    }
+        final LocalDate date = LocalDate.parse(bankCSVRow.getDate(), DATE_PATTERN);
+        final double amount = Double.parseDouble(bankCSVRow.getAmount());
+        final String description = bankCSVRow.getDescription();
+
+        return new BankTransaction(date, amount, description);
+    }
 
     public List<BankTransaction> parseLinesFrom(final List<String> lines) {
         final List<BankTransaction> bankTransactions = new ArrayList<>();
