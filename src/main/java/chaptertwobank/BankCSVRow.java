@@ -1,5 +1,9 @@
 package chaptertwobank;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+
 public class BankCSVRow {
     private final String date;
     private final String amount;
@@ -17,22 +21,22 @@ public class BankCSVRow {
             throw new IllegalArgumentException("Wrong number of columns: " + line);
         }
 
-        if (!isNumeric(columns[1])) {
-            throw new NumberFormatException("Amount is not numeric");
-        }
-
         return new BankCSVRow(columns[0], columns[1], columns[2]);
     }
 
-    private static boolean isNumeric(String str) {
-        if (str == null || str.isEmpty()) {
-            return false;
-        }
+    public static LocalDate validateDate(String date, DateTimeFormatter formatter) {
         try {
-            Double.parseDouble(str);
-            return true;
+            return LocalDate.parse(date, formatter);
+        } catch (DateTimeParseException e) {
+            throw new DateTimeParseException("Invalid Date: " + date, date, e.getErrorIndex(), e);
+        }
+    }
+
+    public static double validateAmount(String amount) {
+        try {
+            return Double.parseDouble(amount);
         } catch (NumberFormatException e) {
-            return false;
+            throw new NumberFormatException("Invalid amount: " + amount);
         }
     }
 

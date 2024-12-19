@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import java.time.LocalDate;
 import java.time.Month;
+import java.time.format.DateTimeParseException;
 
 public class BankStatementCSVParserTest {
     private final BankStatementParser parser = new BankStatementCSVParser();
@@ -24,11 +25,22 @@ public class BankStatementCSVParserTest {
         Assert.assertEquals(expected.getDescription(), result.getDescription());
     }
 
-    //TODO: Verificar se extrato tem 3 linhas
     @Test
     public void shouldNotParseWithNumericInvalid() {
         final String line = "29-02-2018,not-a-number,Tesco";
 
         Assert.assertThrows(NumberFormatException.class, () -> parser.parseFrom(line));
+    }
+
+    @Test
+    public void shouldNotParseWithInvalidDate() {
+        final String line = "notvaliddate,-50,Tesco";
+        Assert.assertThrows(DateTimeParseException.class, () -> parser.parseFrom(line));
+    }
+
+    @Test
+    public void shouldNotParseWithLineLengthWrong() {
+        final String line = "30-01-2017,-50";
+        Assert.assertThrows(IllegalArgumentException.class, () -> parser.parseFrom(line));
     }
 }

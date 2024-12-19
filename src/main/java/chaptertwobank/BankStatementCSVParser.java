@@ -13,8 +13,8 @@ public class BankStatementCSVParser implements BankStatementParser {
     public BankTransaction parseFrom(String line) {
         BankCSVRow bankCSVRow = BankCSVRow.fromLine(line);
 
-        final LocalDate date = LocalDate.parse(bankCSVRow.getDate(), DATE_PATTERN);
-        final double amount = Double.parseDouble(bankCSVRow.getAmount());
+        final LocalDate date = BankCSVRow.validateDate(bankCSVRow.getDate(), DATE_PATTERN);
+        final double amount = BankCSVRow.validateAmount(bankCSVRow.getAmount());
         final String description = bankCSVRow.getDescription();
 
         return new BankTransaction(date, amount, description);
