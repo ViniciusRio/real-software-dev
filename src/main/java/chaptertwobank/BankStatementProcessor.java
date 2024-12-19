@@ -1,5 +1,6 @@
 package chaptertwobank;
 
+import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
 
@@ -36,5 +37,19 @@ public class BankStatementProcessor {
             }
         }
         return totalAmount;
+    }
+
+    public double calculateMaxAmountNegativeBetweenDates(final LocalDate startDate, final LocalDate endDate) {
+        return bankTransactions.stream()
+                //garente que as datas não sejam antes ou depois do range
+                .filter(transaction ->
+                        !transaction.getDate().isBefore(startDate) && !transaction.getDate().isAfter(endDate))
+                // pega cada valor
+                .mapToDouble(BankTransaction::getAmount)
+                // pega apenas os negativos
+                .filter(amount -> amount < 0)
+                // pega o menor valor (mais distante de zero)
+                .min()
+                .orElse(0);
     }
 }
