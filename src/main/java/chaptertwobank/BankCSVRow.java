@@ -23,7 +23,7 @@ public class BankCSVRow {
 
         return new BankCSVRow(columns[0], columns[1], columns[2]);
     }
-
+    // TODO: torna-lo generico
     public static LocalDate validateDate(String date, DateTimeFormatter formatter) {
         try {
             return LocalDate.parse(date, formatter);
@@ -31,7 +31,7 @@ public class BankCSVRow {
             throw new DateTimeParseException("Invalid Date: " + date, date, e.getErrorIndex(), e);
         }
     }
-
+    // TODO: torna-lo generico
     public static double validateAmount(String amount) {
         try {
             return Double.parseDouble(amount);
