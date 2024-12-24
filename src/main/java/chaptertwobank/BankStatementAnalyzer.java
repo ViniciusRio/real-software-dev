@@ -25,8 +25,10 @@ public class BankStatementAnalyzer {
 
     private static void collectSummary(final BankStatementProcessor bankStatementProcessor) {
         System.out.println("The total for all transaction is " + bankStatementProcessor.calculateTotalAmount());
-        System.out.println("Transactions in January " + bankStatementProcessor.calculateTotalInMonth(Month.JANUARY));
-        System.out.println("Transactions in February " + bankStatementProcessor.calculateTotalInMonth(Month.FEBRUARY));
+        BankSummary transactionJanuary = bankStatementProcessor.calculateTotalInMonth(Month.JANUARY);
+        System.out.println("Transactions in January " + transactionJanuary.getTotal());
+        BankSummary transactionFebruary = bankStatementProcessor.calculateTotalInMonth(Month.FEBRUARY);
+        System.out.println("Transactions in February " + transactionFebruary.getTotal());
         System.out.println("The total of salary received is " + bankStatementProcessor.calculateTotalForCategory("Salary"));
 
         LocalDate startDate = LocalDate.of(2024, 1, 1);
