@@ -39,5 +39,17 @@ public class BankStatementAnalyzer {
                 endDate +
                 ": " +
                 bankStatementProcessor.calculateMaxAmountNegativeBetweenDates(startDate, endDate));
+
+        SummaryStatistics summaryStatistics = new SummaryStatistics(
+                1780,
+                1200,
+                -300,
+                178.0
+        );
+
+        Exporter exporter = new HtmlExporter();
+        String htmlOutput = exporter.export(summaryStatistics);
+
+        System.out.println(htmlOutput);
     }
 }
