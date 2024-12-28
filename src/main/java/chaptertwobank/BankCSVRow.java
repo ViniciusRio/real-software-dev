@@ -1,10 +1,10 @@
 package chaptertwobank;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
-
 public class BankCSVRow {
+    private static final int DATE_INDEX = 0;
+    private static final int AMOUNT_INDEX = 1;
+    private static final int DESCRIPTION_INDEX = 2;
+
     private final String date;
     private final String amount;
     private final String description;
@@ -17,27 +17,9 @@ public class BankCSVRow {
 
     public static BankCSVRow fromLine(String line) {
         String[] columns = line.split(",");
-        if (columns.length != 3) {
-            throw new IllegalArgumentException("Wrong number of columns: " + line);
-        }
+        BankCSVRowValidator.validateColumns(columns, line);
 
-        return new BankCSVRow(columns[0], columns[1], columns[2]);
-    }
-    // TODO: torna-lo generico
-    public static LocalDate validateDate(String date, DateTimeFormatter formatter) {
-        try {
-            return LocalDate.parse(date, formatter);
-        } catch (DateTimeParseException e) {
-            throw new DateTimeParseException("Invalid Date: " + date, date, e.getErrorIndex(), e);
-        }
-    }
-    // TODO: torna-lo generico
-    public static double validateAmount(String amount) {
-        try {
-            return Double.parseDouble(amount);
-        } catch (NumberFormatException e) {
-            throw new NumberFormatException("Invalid amount: " + amount);
-        }
+        return new BankCSVRow(columns[DATE_INDEX], columns[AMOUNT_INDEX], columns[DESCRIPTION_INDEX]);
     }
 
     public String getDate() {

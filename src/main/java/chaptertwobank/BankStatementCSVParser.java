@@ -8,14 +8,13 @@ import java.util.List;
 public class BankStatementCSVParser implements BankStatementParser {
     private static final DateTimeFormatter DATE_PATTERN
             = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-
     @Override
     public BankTransaction parseFrom(String line) {
         BankCSVRow bankCSVRow = BankCSVRow.fromLine(line);
 
-        final LocalDate date = BankCSVRow.validateDate(bankCSVRow.getDate(), DATE_PATTERN);
-        final double amount = BankCSVRow.validateAmount(bankCSVRow.getAmount());
-        final String description = bankCSVRow.getDescription();
+        LocalDate date = BankCSVRowValidator.validateDate(bankCSVRow.getDate(), DATE_PATTERN);
+        double amount = BankCSVRowValidator.validateAmount(bankCSVRow.getAmount());
+        String description = bankCSVRow.getDescription();
 
         return new BankTransaction(date, amount, description);
     }
