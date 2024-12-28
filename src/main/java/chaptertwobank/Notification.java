@@ -3,6 +3,7 @@ package chaptertwobank;
 import java.util.ArrayList;
 import java.util.List;
 
+//implementar depois
 public class Notification {
     private final List<String> errors = new ArrayList<>();
 

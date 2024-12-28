@@ -29,13 +29,13 @@ public class BankStatementCSVParserTest {
     public void shouldNotParseWithNumericInvalid() {
         final String line = "29-02-2018,not-a-number,Tesco";
 
-        Assert.assertThrows(NumberFormatException.class, () -> parser.parseFrom(line));
+        Assert.assertThrows(IllegalArgumentException.class, () -> parser.parseFrom(line));
     }
 
     @Test
     public void shouldNotParseWithInvalidDate() {
         final String line = "notvaliddate,-50,Tesco";
-        Assert.assertThrows(DateTimeParseException.class, () -> parser.parseFrom(line));
+        Assert.assertThrows(IllegalArgumentException.class, () -> parser.parseFrom(line));
     }
 
     @Test
