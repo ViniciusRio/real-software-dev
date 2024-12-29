@@ -6,7 +6,6 @@ import org.junit.Test;
 
 import java.time.LocalDate;
 import java.time.Month;
-import java.time.format.DateTimeParseException;
 
 public class BankStatementCSVParserTest {
     private final BankStatementParser parser = new BankStatementCSVParser();
