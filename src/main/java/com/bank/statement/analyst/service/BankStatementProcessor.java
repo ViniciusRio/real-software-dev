@@ -1,4 +1,7 @@
-package com.bank.statement.analyst;
+package com.bank.statement.analyst.service;
+
+import com.bank.statement.analyst.util.BankSummary;
+import com.bank.statement.analyst.model.BankTransaction;
 
 import java.time.LocalDate;
 import java.time.Month;
@@ -15,15 +18,15 @@ public class BankStatementProcessor {
     public double calculateTotalAmount() {
         double totalAmount = 0;
         for (BankTransaction bankTransaction : bankTransactions) {
-            totalAmount += bankTransaction.getAmount();
+            totalAmount += bankTransaction.amount();
         }
         return totalAmount;
     }
 
     public BankSummary calculateTotalInMonth(final Month month) {
         return summarizeTransactions((accumulator, bankTransaction) -> {
-           if (bankTransaction.getDate().getMonth().equals(month)) {
-               double total = accumulator.getTotal() + bankTransaction.getAmount();
+           if (bankTransaction.date().getMonth().equals(month)) {
+               double total = accumulator.getTotal() + bankTransaction.amount();
                return new BankSummary(total);
            }
 
@@ -34,8 +37,8 @@ public class BankStatementProcessor {
     public double calculateTotalForCategory(final String category) {
         double totalAmount = 0;
         for (final BankTransaction bankTransaction : bankTransactions) {
-            if (bankTransaction.getDescription().equals(category)) {
-                totalAmount += bankTransaction.getAmount();
+            if (bankTransaction.description().equals(category)) {
+                totalAmount += bankTransaction.amount();
             }
         }
         return totalAmount;
@@ -45,9 +48,9 @@ public class BankStatementProcessor {
         return bankTransactions.stream()
                 //garente que as datas não sejam antes ou depois do range
                 .filter(transaction ->
-                        !transaction.getDate().isBefore(startDate) && !transaction.getDate().isAfter(endDate))
+                        !transaction.date().isBefore(startDate) && !transaction.date().isAfter(endDate))
                 // pega cada valor
-                .mapToDouble(BankTransaction::getAmount)
+                .mapToDouble(BankTransaction::amount)
                 // pega apenas os negativos
                 .filter(amount -> amount < 0)
                 // pega o menor valor (mais distante de zero)
@@ -66,7 +69,7 @@ public class BankStatementProcessor {
     }
 
     public List<BankTransaction> findTransactionsGreaterThanEqual(final int amount) {
-        return findTransactions(bankTransaction -> bankTransaction.getAmount() >= amount);
+        return findTransactions(bankTransaction -> bankTransaction.amount() >= amount);
 
     }
 

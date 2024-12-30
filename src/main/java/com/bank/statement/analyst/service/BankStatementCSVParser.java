@@ -1,4 +1,8 @@
-package com.bank.statement.analyst;
+package com.bank.statement.analyst.service;
+
+import com.bank.statement.analyst.model.BankCSVRow;
+import com.bank.statement.analyst.validator.BankCSVRowValidator;
+import com.bank.statement.analyst.model.BankTransaction;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -12,9 +16,9 @@ public class BankStatementCSVParser implements BankStatementParser {
     public BankTransaction parseFrom(String line) {
         BankCSVRow bankCSVRow = BankCSVRow.fromLine(line);
 
-        LocalDate date = BankCSVRowValidator.validateDate(bankCSVRow.getDate(), DATE_PATTERN);
-        double amount = BankCSVRowValidator.validateAmount(bankCSVRow.getAmount());
-        String description = bankCSVRow.getDescription();
+        LocalDate date = BankCSVRowValidator.validateDate(bankCSVRow.date(), DATE_PATTERN);
+        double amount = BankCSVRowValidator.validateAmount(bankCSVRow.amount());
+        String description = bankCSVRow.description();
 
         return new BankTransaction(date, amount, description);
     }

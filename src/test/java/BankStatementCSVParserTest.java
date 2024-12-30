@@ -1,6 +1,6 @@
-import com.bank.statement.analyst.BankStatementCSVParser;
-import com.bank.statement.analyst.BankStatementParser;
-import com.bank.statement.analyst.BankTransaction;
+import com.bank.statement.analyst.service.BankStatementCSVParser;
+import com.bank.statement.analyst.service.BankStatementParser;
+import com.bank.statement.analyst.model.BankTransaction;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -19,9 +19,9 @@ public class BankStatementCSVParserTest {
                 -50, "Tesco");
         final double tolerance = 0.0d;
 
-        Assert.assertEquals(expected.getDate(), result.getDate());
-        Assert.assertEquals(expected.getAmount(), result.getAmount(), tolerance);
-        Assert.assertEquals(expected.getDescription(), result.getDescription());
+        Assert.assertEquals(expected.date(), result.date());
+        Assert.assertEquals(expected.amount(), result.amount(), tolerance);
+        Assert.assertEquals(expected.description(), result.description());
     }
 
     @Test

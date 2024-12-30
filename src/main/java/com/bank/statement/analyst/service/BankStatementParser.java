@@ -1,4 +1,6 @@
-package com.bank.statement.analyst;
+package com.bank.statement.analyst.service;
+
+import com.bank.statement.analyst.model.BankTransaction;
 
 import java.util.List;
 

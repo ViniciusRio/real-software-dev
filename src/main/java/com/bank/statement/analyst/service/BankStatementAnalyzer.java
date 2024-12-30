@@ -1,4 +1,12 @@
-package com.bank.statement.analyst;
+package com.bank.statement.analyst.service;
+
+import com.bank.statement.analyst.util.BankSummary;
+import com.bank.statement.analyst.model.BankTransaction;
+import com.bank.statement.analyst.model.SummaryStatistics;
+import com.bank.statement.analyst.exporter.Exporter;
+import com.bank.statement.analyst.exporter.HtmlExporter;
+import com.bank.statement.analyst.exporter.JsonExporter;
+import com.bank.statement.analyst.exporter.XmlExporter;
 
 import java.io.IOException;
 import java.nio.file.Files;

@@ -1,5 +1,8 @@
 package com.bank.statement.analyst;
 
+import com.bank.statement.analyst.service.BankStatementAnalyzer;
+import com.bank.statement.analyst.service.BankStatementCSVParser;
+
 import java.io.IOException;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
