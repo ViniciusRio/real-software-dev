@@ -47,9 +47,15 @@ public class BankStatementAnalyzer {
                 178.0
         );
 
-        Exporter exporter = new HtmlExporter();
-        String htmlOutput = exporter.export(summaryStatistics);
+        Exporter htmlExporter = new HtmlExporter();
+        Exporter xmlExporter = new XmlExporter();
+        Exporter jsonExporter = new JsonExporter();
+        String htmlOutput = htmlExporter.export(summaryStatistics);
+        String xmlOutput = xmlExporter.export(summaryStatistics);
+        String jsonOutput = jsonExporter.export(summaryStatistics);
 
         System.out.println(htmlOutput);
+        System.out.println(xmlOutput);
+        System.out.println(jsonOutput);
     }
 }
