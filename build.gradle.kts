@@ -32,5 +32,5 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass = "chaptertwobank.Main"
+    mainClass = "com.bank.statement.analyst.Main"
 }

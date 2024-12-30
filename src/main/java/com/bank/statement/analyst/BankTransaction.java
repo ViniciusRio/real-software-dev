@@ -1,4 +1,4 @@
-package chaptertwobank;
+package com.bank.statement.analyst;
 
 import java.time.LocalDate;
 import java.util.Objects;

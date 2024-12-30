@@ -1,4 +1,4 @@
-package chaptertwobank;
+package com.bank.statement.analyst;
 
 public class JsonExporter implements Exporter {
     @Override

@@ -1,4 +1,4 @@
-package chaptertwobank;
+package com.bank.statement.analyst;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -54,8 +54,8 @@ public class BankStatementAnalyzer {
         String xmlOutput = xmlExporter.export(summaryStatistics);
         String jsonOutput = jsonExporter.export(summaryStatistics);
 
-        System.out.println(htmlOutput);
-        System.out.println(xmlOutput);
-        System.out.println(jsonOutput);
+        System.out.println("HTML: " + htmlOutput);
+        System.out.println("XML: " + xmlOutput);
+        System.out.println("JSON: " + jsonOutput);
     }
 }

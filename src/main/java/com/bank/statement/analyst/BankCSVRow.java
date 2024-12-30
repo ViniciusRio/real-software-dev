@@ -1,4 +1,4 @@
-package chaptertwobank;
+package com.bank.statement.analyst;
 
 public class BankCSVRow {
     private static final int DATE_INDEX = 0;

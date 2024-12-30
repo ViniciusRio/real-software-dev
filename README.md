@@ -67,7 +67,7 @@ real-software-dev/
 ├── src
 │   ├── main
 │   │   ├── java
-│   │   │   └── chaptertwobank
+│   │   │   └── com.bank.statement.analyst
 │   │   │       ├── BankStatementCSVParser.java
 │   │   │       ├── BankTransaction.java
 │   │   │       └── UtilityClasses.java
@@ -75,7 +75,7 @@ real-software-dev/
 │   │       └── bank-data.csv
 │   └── test
 │       └── java
-│           └── chaptertwobank
+│           └── com.bank.statement.analyst
 │               └── BankStatementCSVParserTest.java
 ├── .gitignore
 ├── README.md

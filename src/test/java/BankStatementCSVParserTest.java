@@ -1,6 +1,6 @@
-import chaptertwobank.BankStatementCSVParser;
-import chaptertwobank.BankStatementParser;
-import chaptertwobank.BankTransaction;
+import com.bank.statement.analyst.BankStatementCSVParser;
+import com.bank.statement.analyst.BankStatementParser;
+import com.bank.statement.analyst.BankTransaction;
 import org.junit.Assert;
 import org.junit.Test;
 

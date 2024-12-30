@@ -1,4 +1,4 @@
-package chaptertwobank;
+package com.bank.statement.analyst;
 
 import java.util.ArrayList;
 import java.util.List;
