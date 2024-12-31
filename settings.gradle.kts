@@ -12,3 +12,5 @@ plugins {
 }
 
 rootProject.name = "book-drs"
+include("document-management-system")
+include("bank-statement-analyst")
