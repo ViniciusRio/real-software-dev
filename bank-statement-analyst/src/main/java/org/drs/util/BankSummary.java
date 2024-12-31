@@ -1,4 +1,4 @@
-package com.bank.statement.analyst.util;
+package org.drs.util;
 
 public class BankSummary {
     private final double total;

@@ -1,4 +1,4 @@
-package com.bank.statement.analyst.validator;
+package org.drs.validator;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

@@ -1,7 +1,7 @@
-package com.bank.statement.analyst.service;
+package org.drs.service;
 
-import com.bank.statement.analyst.util.BankSummary;
-import com.bank.statement.analyst.model.BankTransaction;
+import org.drs.util.BankSummary;
+import org.drs.model.BankTransaction;
 
 import java.time.LocalDate;
 import java.time.Month;

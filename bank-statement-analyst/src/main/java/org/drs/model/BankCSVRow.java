@@ -1,6 +1,6 @@
-package com.bank.statement.analyst.model;
+package org.drs.model;
 
-import com.bank.statement.analyst.validator.BankCSVRowValidator;
+import org.drs.validator.BankCSVRowValidator;
 
 public record BankCSVRow(String date, String amount, String description) {
     private static final int DATE_INDEX = 0;

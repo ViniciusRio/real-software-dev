@@ -1,6 +1,6 @@
-package com.bank.statement.analyst.exporter;
+package org.drs.exporter;
 
-import com.bank.statement.analyst.model.SummaryStatistics;
+import org.drs.model.SummaryStatistics;
 
 public class HtmlExporter implements Exporter {
 

@@ -1,4 +1,4 @@
-package com.bank.statement.analyst.util;
+package org.drs.util;
 
 import java.util.ArrayList;
 import java.util.List;

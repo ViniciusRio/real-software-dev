@@ -1,4 +1,4 @@
-package com.bank.statement.analyst.model;
+package org.drs.model;
 
 public record SummaryStatistics(
         double sum,

@@ -1,8 +1,8 @@
-package com.bank.statement.analyst.service;
+package org.drs.service;
 
-import com.bank.statement.analyst.model.BankCSVRow;
-import com.bank.statement.analyst.validator.BankCSVRowValidator;
-import com.bank.statement.analyst.model.BankTransaction;
+import org.drs.model.BankCSVRow;
+import org.drs.validator.BankCSVRowValidator;
+import org.drs.model.BankTransaction;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

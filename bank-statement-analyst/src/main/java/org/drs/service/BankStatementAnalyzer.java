@@ -1,12 +1,12 @@
-package com.bank.statement.analyst.service;
+package org.drs.service;
 
-import com.bank.statement.analyst.util.BankSummary;
-import com.bank.statement.analyst.model.BankTransaction;
-import com.bank.statement.analyst.model.SummaryStatistics;
-import com.bank.statement.analyst.exporter.Exporter;
-import com.bank.statement.analyst.exporter.HtmlExporter;
-import com.bank.statement.analyst.exporter.JsonExporter;
-import com.bank.statement.analyst.exporter.XmlExporter;
+import org.drs.util.BankSummary;
+import org.drs.model.BankTransaction;
+import org.drs.model.SummaryStatistics;
+import org.drs.exporter.Exporter;
+import org.drs.exporter.HtmlExporter;
+import org.drs.exporter.JsonExporter;
+import org.drs.exporter.XmlExporter;
 
 import java.io.IOException;
 import java.nio.file.Files;
