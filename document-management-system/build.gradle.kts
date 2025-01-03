@@ -12,7 +12,7 @@ repositories {
 
 dependencies {
     testImplementation("junit:junit:4.13.1")
-
+    testImplementation("org.hamcrest:hamcrest:3.0")
 }
 
 application {
