@@ -21,6 +21,7 @@ public class DocumentManagementSystem {
         extensionToImporter.put("report", new ReportImporter());
         extensionToImporter.put("jpg", new ImageImporter());
         extensionToImporter.put("invoice", new InvoiceImporter());
+        extensionToImporter.put("prescription", new PrescriptionImporter());
 
     }
     public void importFile(String path) throws IOException {

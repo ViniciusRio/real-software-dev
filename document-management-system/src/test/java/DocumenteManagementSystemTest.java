@@ -21,6 +21,7 @@ public class DocumenteManagementSystemTest {
     private static final String REPORT = RESOURCES + "patient.report";
     private static final String XRAY = RESOURCES + "xray.jpg";
     private static final String INVOICE = RESOURCES + "patient.invoice";
+    private static final String PRESCRIPTION = RESOURCES + "patient.prescription";
     private static final String JOE = "Joe Car";
 
     private DocumentManagementSystem documentManagementSystem = new DocumentManagementSystem();
@@ -42,6 +43,14 @@ public class DocumenteManagementSystemTest {
         documentManagementSystem.importFile(REPORT);
 
         assertIsReport(onlyDocument());
+
+    }
+
+    @Test
+    public void shouldImportPrescription() throws IOException {
+        documentManagementSystem.importFile(PRESCRIPTION);
+
+        assertIsPrescription(onlyDocument());
 
     }
 
@@ -80,6 +89,17 @@ public class DocumenteManagementSystemTest {
         assertTypeIs("REPORT", document);
 
     }
+
+    private void assertIsPrescription(Document document) {
+        assertAttributeEquals(document, "patient", "Mary Smith");
+        assertAttributeEquals(document, "prescription",
+                "Medication: Amoxicillin\n" +
+                        "Quantity: 30 capsules\n" +
+                        "Date: 19th December 2024\n" +
+                        "Dosage: Take 1 capsule every 8 hours after meals for 10 days.");
+        assertTypeIs("PRESCRIPTION", document);
+    }
+
 
     @Test
     public void shouldImportLetterAttributes() throws Exception
