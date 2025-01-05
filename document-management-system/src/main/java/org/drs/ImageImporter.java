@@ -19,7 +19,7 @@ public class ImageImporter implements Importer {
 
         attributes.put(WIDTH, String.valueOf(image.getWidth()));
         attributes.put(HEIGHT, String.valueOf(image.getHeight()));
-        attributes.put(TYPE, "image");
+        attributes.put(TYPE, "IMAGE");
 
         return new Document(attributes);
     }
